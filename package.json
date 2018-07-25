@@ -1,6 +1,6 @@
 {
   "name": "health-middleware",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "RFC-compliant Health Middleware for HTTP APIs written in Node",
   "author": "",
   "license": "MIT",
