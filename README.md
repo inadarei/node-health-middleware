@@ -77,6 +77,16 @@ or 'fail' and MAY have following additional fields:
 - time
 - output
 
+## Roadmap
+
+1. Cached checks - expensive checks, like database calls, should not be called 
+every time a monitoring service decides to invoke health check endpoint to 
+prevent accidental self-denial-of-service outages. Ability to cache expensive
+checks is important for a quality health check system.
+
+2. Circuit Breaking - if health check is calling a downstream service and sees
+it failing, circuit-breaking should be implemented to prevent cascading failures.
+
 ## License
 
 [MIT](LICENSE)
