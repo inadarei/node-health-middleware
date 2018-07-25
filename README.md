@@ -26,12 +26,26 @@ defined in the [healthcheck draft RFC](https://tools.ietf.org/html/draft-inadare
 
 ## Usage
 
+Basic Usage:
+
+```javascript
+const healthcheck = require('health-middleware');
+
+// Add middleware to your Express app:
+app.use(healthcheck());
+```
+
+Advanced usage with custom health checker:
+
 ```javascript
 const healthcheck = require('health-middleware');
 
 // If you need/want to add custom health checker functions:
-healthcheck.addCheck('cassandra', 'timeout', async() => {
-    // Faking data here, for brevity
+healthcheck.addCheck('cassandra', 'timeout', async () => {
+    // Returning fake data here, for brevity, but you
+    // could be making DB calls, to check its health, making
+    // API calls to downstream dependencies, or anything else
+    // that your health check logic requires.
     return {
         status : 'pass',
         metricValue: 250,
@@ -42,6 +56,26 @@ healthcheck.addCheck('cassandra', 'timeout', async() => {
 // Add middleware to your Express app:
 app.use(healthcheck());
 ```
+
+### Writing Custom Health Checkers
+
+Every APi and application is different. The kind of metrics you may need to track
+can be different from what others do. This module is all about being flexible,
+while being designed for consistency and RFC-compliance. Adding custom health 
+checks is very easy. All you need to do is to call an `addCheck()` call with
+the name of the component and metrics that the check is related to, as well
+as an ES2018 async function that will be executed to retrieve the health values.
+
+The return JSON object MUST have `status` field that is either 'pass', 'warn'
+or 'fail' and MAY have following additional fields:
+
+- componentId
+- componentType
+- metricValue
+- metricUnit
+- status
+- time
+- output
 
 ## License
 
