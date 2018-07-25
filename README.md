@@ -6,9 +6,16 @@
 - [ ] Sails.js
 - [ ] Restify
 
+
+## Installation
+
+```bash
+> npm i -S health-middleware
+```
+
 ## Usage
 
-```
+```javascript
 const healthcheck = require('health-middleware');
 app.use(healthcheck());
 ```
