@@ -4,7 +4,7 @@
   "description": "RFC-compliant Health Middleware for HTTP APIs written in Node",
   "author": "",
   "license": "MIT",
-  "main": "./middleware.js",
+  "main": "./lib/health.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/inadarei/node-health-middleware"
