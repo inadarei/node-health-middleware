@@ -18,6 +18,7 @@
 ```javascript
 const healthcheck = require('health-middleware');
 
+// If you need/want to add custom health checker functions:
 healthcheck.addCheck('cassandra', 'timeout', async() => {
     // Faking data here, for brevity
     return {
@@ -27,6 +28,7 @@ healthcheck.addCheck('cassandra', 'timeout', async() => {
     };
 });
 
+// Add middleware to your Express app:
 app.use(healthcheck());
 ```
 
