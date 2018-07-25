@@ -1,2 +1,19 @@
-# node-health-middleware
-RFC-compliant Health Middleware for HTTP APIs in Node
+# Node Health Middleware
+
+## Implementation Status
+
+- [x] Express/Connect
+- [ ] Sails.js
+- [ ] Restify
+
+## Usage
+
+```
+const healthcheck = require('health-middleware');
+app.use(healthcheck());
+```
+
+## License
+
+[MIT](LICENSE)
+
