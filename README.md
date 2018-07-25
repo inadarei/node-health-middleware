@@ -13,6 +13,10 @@
 > npm i -S health-middleware
 ```
 
+## RFC Compliance
+
+Health responses are returned according to Draft RFC: <https://tools.ietf.org/html/draft-inadarei-api-health-check.html>
+
 ## Usage
 
 ```javascript
